@@ -70,12 +70,13 @@ public class SaveAddressServlet extends HttpServlet {
 	
 	private CarpoolRequest getCarpoolRequest(HttpServletRequest request){
 		CarpoolRequest carpoolReq = new CarpoolRequest();
+		carpoolReq.setSuburb(request.getParameter("suburb"));
+		carpoolReq.setEtaCity(request.getParameter("etaCity"));
+		carpoolReq.setEtaHome(request.getParameter("etaHome"));
 		carpoolReq.setContactName(request.getParameter("contactName"));
-		carpoolReq.setCountry(request.getParameter("country"));
 		carpoolReq.setEmail(request.getParameter("email"));
-		carpoolReq.setFrom(request.getParameter("from"));
 		carpoolReq.setPhone(request.getParameter("phone"));
-		carpoolReq.setTo(request.getParameter("to"));
+		carpoolReq.setRego(request.getParameter("rego"));
 		return carpoolReq;
 	}
 

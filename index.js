@@ -21,10 +21,23 @@ function validate (type, obj) {
 	}
 }
 
-function showLocation () {
+function successLocation (location) {
 	obj=document.getElementById("from");
-	obj.value="Sydney, Australia";
+	obj.value=location.coords.latitude+" "+location.coords.longitude;
 	validate ("location", obj);
+}
+
+function geoIP () {
+	obj=document.getElementById("from");
+	obj.value=geoip_city()+", "+geoip_region_name()+", "+geoip_country_name();
+	validate ("location", obj);
+}
+
+function showLocation () {
+	geoIP();
+	if (navigator.geolocation) {
+	  navigator.geolocation.getCurrentPosition(successLocation);
+	}
 	
 	return false;
 }

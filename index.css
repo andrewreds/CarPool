@@ -13,3 +13,24 @@
 	float:left;
 	padding:5px;
 }
+
+#search {
+	width:200px;
+}
+
+#search input {
+	width:130px;
+	padding-right:18px;
+}
+
+.valid {
+	background-image:url(ok.gif);
+	background-repeat: no-repeat;
+	background-position: 99% 50%;
+}
+
+.invalid {
+	background-image:url(bad.gif);
+	background-repeat: no-repeat;
+	background-position: 99% 50%;
+}

@@ -11,12 +11,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>SaveServletServlet</display-name>
-    <servlet-name>SaveServletServlet</servlet-name>
-    <servlet-class>carpool.SaveServletServlet</servlet-class>
+    <display-name>SaveAddressServlet</display-name>
+    <servlet-name>SaveAddressServlet</servlet-name>
+    <servlet-class>carpool.SaveAddressServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SaveServletServlet</servlet-name>
-    <url-pattern>/SaveServletServlet</url-pattern>
+    <servlet-name>SaveAddressServlet</servlet-name>
+    <url-pattern>/SaveAddressServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -21,6 +21,15 @@ var address = obj.value;
 		if (status == google.maps.GeocoderStatus.OK) {
 			$("#"+obj.id).removeClass("invalid");
 			$("#"+obj.id).addClass("valid");
+			map.setCenter(results[0].geometry.location);
+			if (!obj.marker) {
+				obj.marker = new google.maps.Marker({
+               position: results[0].geometry.location, 
+               map: map
+				});
+			} else {
+				obj.marker.setPosition(results[0].geometry.location);
+			}
 		} else {
 			$("#"+obj.id).removeClass("valid");
 			$("#"+obj.id).addClass("invalid");

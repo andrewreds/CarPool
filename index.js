@@ -20,3 +20,11 @@ function validate (type, obj) {
 		$("#"+obj.id).removeClass("invalid");
 	}
 }
+
+function showLocation () {
+	obj=document.getElementById("from");
+	obj.value="Sydney, Australia";
+	validate ("location", obj);
+	
+	return false;
+}

@@ -15,12 +15,22 @@
 }
 
 #search {
-	width:200px;
+	width:250px;
 }
 
 #search input {
-	width:130px;
+	width:99%;
 	padding-right:18px;
+	border-right:20px;
+}
+
+#search a {
+	margin-left:20px;
+}
+
+#search image {
+	border:none;
+	border-width:0px;
 }
 
 .valid {

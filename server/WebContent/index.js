@@ -42,7 +42,7 @@ function loadedAjax (data) {
 		markers[i].setIcon("bad.gif");
 	}
 	
-	res.innerHTML = "";
+	res.empty();
 	res.append (table);
 	res.className = "show";
 	$("#spinner").className = "hidden";

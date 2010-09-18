@@ -8,3 +8,15 @@ function load () {
 	};
 	var map = new google.maps.Map(document.getElementById("map"), myOptions);
 }
+
+
+
+function validate (type, obj) {
+	if (obj.value == "") {
+		$("#"+obj.id).removeClass("valid");
+		$("#"+obj.id).addClass("invalid");
+	} else {
+		$("#"+obj.id).addClass("valid");
+		$("#"+obj.id).removeClass("invalid");
+	}
+}

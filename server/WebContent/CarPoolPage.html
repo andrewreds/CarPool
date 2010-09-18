@@ -5,19 +5,57 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello Mum!</h1>
 
-        <form action="SaveAddressServlet" method="post">
-            From Address: <input type="text" name="from" size="14">
-            Going to: <input type="text" name="to" size="14">
-            Country: <input type="text" name="country" size="14">
-            Contact Name: <input type="text" name="contactName" size="14">
-            Email: <input type="text" name="email" size="14">
-            Phone: <input type="text" name="phone" size="14">
-                    
-            <input type="submit">
-        </form>
+
+		<link type="text/css" href="css/smoothness/jquery-ui-1.8.5.custom.css" rel="stylesheet" />
+		
+		
+		<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery.form.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#enterTripDialog").dialog({autoOpen: false});
+				
+				// bind 'tripForm' and provide a simple callback function 
+            	$('#tripForm').ajaxForm(function() { 
+                	alert("Thank you for your comment!"); 
+            	});
+			});
+			
+			function showDialog(){
+				$("#enterTripDialog").dialog('open');
+			}
+			
+			function submitTrip(){
+				//$("#submit")
+			}
+		</script>
+    </head>
+	
+    <body>
+		<!-- ui-dialog -->
+		<div id="enterTripDialog" title="Enter Trip">
+		    <form id="tripForm" action="SaveAddressServlet" method="post">
+		        Suburb: <input type="text" name="suburb" size="14">
+				<br/>
+		        ETA City: <input type="text" name="etaCity" size="14">
+				<br/>
+		        ETA Home: <input type="text" name="etaHome" size="14">
+				<br/>
+		        Contact Name: <input type="text" name="contactName" size="14">
+				<br/>
+		        Email: <input type="text" name="email" size="14">
+				<br/>
+		        Phone: <input type="text" name="phone" size="14">
+				<br/>       
+		        Rego: <input type="text" name="rego" size="14">
+				<br/>       
+		        <button type="submit">Submit</button>
+		    </form>
+		</div>
+		
+		<button type="button" onclick="showDialog();">Enter Trip</button>
+		
     </body>
 </html>

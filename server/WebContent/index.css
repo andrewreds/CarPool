@@ -3,6 +3,10 @@
 	height:400px;
 }
 
+.highlight {
+	color:yellow;
+}
+
 .mas {
 	list-style-type: none;
 	padding: 0px;

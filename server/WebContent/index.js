@@ -1,6 +1,4 @@
-var geocoder;
-var map;
-var time=null;
+var time;
 
 function load () {
 	geocoder = new google.maps.Geocoder();
@@ -14,6 +12,39 @@ function load () {
 	
 	geoIP();
 }
+
+function loadedAjax (data) {
+	data = eval (data);
+	var table = document.createElement ("table");
+	table.innerHTML = "<tbody><tr><td>Name</td><td>suburb</td><td>eta (City)</td><td>eta (Home)</td><td>rego</td></tr></tbody>";
+	for (var i=0; i<data.length; i++) {
+		var row = data[i];
+		var tr = document.createElement ("tr");
+		tr.innerHTML = "<td>"+row["contactName"]+"</td><td>"+row["suburb"]+"</td><td>"+row["etaCity"]+
+				"</td><td>"+row["etaHome"]+"</td><td>"+row["rego"]+"</td>";
+		tr.onMouseOver = "alert('hi');this.className='highlight';";
+		tr.onMouseOut = "this.className='';";
+		table.childNodes[0].appendChild (tr);
+	}
+	
+	var res = document.getElementById("res");
+	res.innerHTML = "";
+	res.appendChild (table);
+	res.className = "show";
+	$("#spinner").className = "hidden";
+}
+
+function search (string) {
+	if (string == "") {
+		res.innerHTML = "";
+		return;
+	}
+	
+	document.getElementById("res").className = "hidden";
+	$("#spinner").className = "show";
+	loadedAjax ("[{suburb:'Chatswood',etaCity:'08:30',etaHome:'17:00', contactName:'ren',rego:'ABC029',coords:[]}]")
+}
+
 
 function checkAddress (obj) {
 var address = obj.value;

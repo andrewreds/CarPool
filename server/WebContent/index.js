@@ -22,8 +22,8 @@ function loadedAjax (data) {
 		var tr = document.createElement ("tr");
 		tr.innerHTML = "<td>"+row["contactName"]+"</td><td>"+row["suburb"]+"</td><td>"+row["etaCity"]+
 				"</td><td>"+row["etaHome"]+"</td><td>"+row["rego"]+"</td>";
-		tr.onMouseOver = "alert('hi');this.className='highlight';";
-		tr.onMouseOut = "this.className='';";
+		tr.onmouseover = function(){this.className='highlight';};
+		tr.onmouseout = function(){this.className='';};
 		table.childNodes[0].appendChild (tr);
 	}
 	

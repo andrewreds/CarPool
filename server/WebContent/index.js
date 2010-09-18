@@ -1,4 +1,5 @@
 var time;
+var markers = [];
 
 function load () {
 	geocoder = new google.maps.Geocoder();
@@ -15,19 +16,32 @@ function load () {
 
 function loadedAjax (data) {
 	data = eval (data);
+	var res = document.getElementById ("res");
+	
+	for (var i=0;i<markers.length; i++) {
+		markers[i].setMap(null);
+	}
+	markers = [];
+
+	
 	var table = document.createElement ("table");
-	table.innerHTML = "<tbody><tr><td>Name</td><td>suburb</td><td>eta (City)</td><td>eta (Home)</td><td>rego</td></tr></tbody>";
+	
+	table.innerHTML = "<tbody><tr><td>Name</td><td>suburb</td><td>eta (City)</td><td>eta (Home)</td><td>rego</td><td></td></tr></tbody>";
 	for (var i=0; i<data.length; i++) {
 		var row = data[i];
 		var tr = document.createElement ("tr");
 		tr.innerHTML = "<td>"+row["contactName"]+"</td><td>"+row["suburb"]+"</td><td>"+row["etaCity"]+
-				"</td><td>"+row["etaHome"]+"</td><td>"+row["rego"]+"</td>";
-		tr.onmouseover = function(){this.className='highlight';};
-		tr.onmouseout = function(){this.className='';};
+				"</td><td>"+row["etaHome"]+"</td><td>"+row["rego"]+"</td><td><a href='javascript:;'>Contact Me</a></td>";
+		eval("tr.onmouseover = function(){this.className='highlight';markers["+i+"].setIcon('ok.gif');}");
+		eval("tr.onmouseout = function(){this.className='';markers["+i+"].setIcon('bad.gif');}");
 		table.childNodes[0].appendChild (tr);
+		markers[i] = new google.maps.Marker({
+         position: new google.maps.LatLng(row["coords"][0],row["coords"][1]), 
+         map: map
+		});
+		markers[i].setIcon("bad.gif");
 	}
 	
-	var res = document.getElementById("res");
 	res.innerHTML = "";
 	res.appendChild (table);
 	res.className = "show";
@@ -37,12 +51,19 @@ function loadedAjax (data) {
 function search (string) {
 	if (string == "") {
 		res.innerHTML = "";
+		
+		for (var i=0;i<markers.length; i++) {
+			markers[i].setMap(null);
+		}
+		markers = [];
+		
 		return;
 	}
 	
 	document.getElementById("res").className = "hidden";
 	$("#spinner").className = "show";
-	loadedAjax ("[{suburb:'Chatswood',etaCity:'08:30',etaHome:'17:00', contactName:'ren',rego:'ABC029',coords:[]}]")
+	loadedAjax ("[{suburb:'Chatswood',etaCity:'08:30',etaHome:'17:00', contactName:'ren',rego:'ABC029',coords:[-33.8833,151.2167]},\
+		{suburb:'Cabramatta',etaCity:'06:45',etaHome:'17:15', contactName:'Andrew',rego:'L0LC0D',coords:[-33.8853,151.2227]}]")
 }
 
 

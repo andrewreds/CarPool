@@ -3,8 +3,28 @@
 	height:400px;
 }
 
-.highlight {
-	color:yellow;
+#res table {
+	border:solid;
+	border-spacing:0px;
+	border-width:2px;
+}
+
+#res table tr {
+	padding:5px 0px;
+	background-color: #10EE10;
+	margin:0px;
+}
+
+#res table tr td {
+	border:solid;
+	border-width:1px;
+	margin:0px;
+	padding:5px;
+}
+
+.highlight td {
+	
+	background-color: #E0EE00;
 }
 
 .mas {

@@ -26,6 +26,8 @@
 
 #search a {
 	margin-left:20px;
+	border:none;
+	border-width:0px;
 }
 
 #search image {

@@ -1,0 +1,15 @@
+#map {
+	width:400px;
+	height:400px;
+}
+
+.mas {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.mas li {
+	float:left;
+	padding:5px;
+}

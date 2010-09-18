@@ -15,8 +15,31 @@
     <servlet-name>SaveAddressServlet</servlet-name>
     <servlet-class>carpool.SaveAddressServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>LoadCarpoolRequestServlet</display-name>
+    <servlet-name>LoadCarpoolRequestServlet</servlet-name>
+    <servlet-class>carpool.LoadCarpoolRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>SearchTripServlet</display-name>
+    <servlet-name>SearchTripServlet</servlet-name>
+    <servlet-class>carpool.SearchTripServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
     <servlet-name>SaveAddressServlet</servlet-name>
     <url-pattern>/SaveAddressServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoadCarpoolRequestServlet</servlet-name>
+    <url-pattern>/list-carpool-request</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SearchTripServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

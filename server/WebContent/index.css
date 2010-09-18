@@ -3,8 +3,28 @@
 	height:400px;
 }
 
-.highlight {
-	color:yellow;
+#res table {
+	border:solid;
+	border-spacing:0px;
+	border-width:2px;
+}
+
+#res table tr {
+	padding:5px 0px;
+	background-color: #10EE10;
+	margin:0px;
+}
+
+#res table tr td {
+	border:solid;
+	border-width:1px;
+	margin:0px;
+	padding:5px;
+}
+
+.highlight td {
+	
+	background-color: #E0EE00;
 }
 
 .mas {
@@ -19,24 +39,16 @@
 }
 
 #search {
-	width:250px;
+	padding-right:18px;
+	background-image:url(search_icon.png);
+	background-repeat: no-repeat;
+	background-position: 99% 50%;
 }
+	
 
-#search input {
-	width:99%;
+#from {
 	padding-right:18px;
 	border-right:20px;
-}
-
-#search a {
-	margin-left:20px;
-	border:0px;
-	border-width:0px;
-}
-
-#search image {
-	border:0px;
-	border-width:0px;
 }
 
 .valid {

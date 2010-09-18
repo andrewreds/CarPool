@@ -16,6 +16,41 @@ function load () {
 
 function loadedAjax (data) {
 	data = eval (data);
+	var res = $("#res");
+	
+	for (var i=0;i<markers.length; i++) {
+		markers[i].setMap(null);
+	}
+	markers = [];
+
+	
+	var table = $("<table cellspacing='0'><tbody><tr><td>Name</td><td>suburb</td><td>eta (City)</td><td>eta (Home)</td><td>rego</td><td></td></tr></tbody></table>");
+	
+	for (var i=0; i<data.length; i++) {
+		var row = data[i];
+		var tr = $("<tr onmouseover=\"this.className='highlight';markers["+i+"].setIcon('ok.gif');\" "+
+				"onmouseout=\"this.className='';markers["+i+"].setIcon('bad.gif');\" "+
+				"><td>"+row["contactName"]+"</td><td>"+row["suburb"]+"</td><td>"+row["etaCity"]+
+				"</td><td>"+row["etaHome"]+"</td><td>"+row["rego"]+"</td><td><a href='javascript:;'>Contact Me</a></td><tr>");
+				
+		table.children().append (tr);
+		
+		markers[i] = new google.maps.Marker({
+         position: new google.maps.LatLng(row["coords"][0],row["coords"][1]), 
+         map: map
+		});
+		markers[i].setIcon("bad.gif");
+	}
+	
+	res.innerHTML = "";
+	res.append (table);
+	res.className = "show";
+	$("#spinner").className = "hidden";
+}
+
+/*
+function loadedAjax (data) {
+	data = eval (data);
 	var res = document.getElementById ("res");
 	
 	for (var i=0;i<markers.length; i++) {
@@ -46,7 +81,7 @@ function loadedAjax (data) {
 	res.appendChild (table);
 	res.className = "show";
 	$("#spinner").className = "hidden";
-}
+}*/
 
 function search (string) {
 	if (string == "") {

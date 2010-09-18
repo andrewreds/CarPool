@@ -39,24 +39,16 @@
 }
 
 #search {
-	width:250px;
+	padding-right:18px;
+	background-image:url(search_icon.png);
+	background-repeat: no-repeat;
+	background-position: 99% 50%;
 }
+	
 
-#search input {
-	width:99%;
+#from {
 	padding-right:18px;
 	border-right:20px;
-}
-
-#search a {
-	margin-left:20px;
-	border:0px;
-	border-width:0px;
-}
-
-#search image {
-	border:0px;
-	border-width:0px;
 }
 
 .valid {

@@ -1,4 +1,5 @@
 var time;
+var directionsService = new google.maps.DirectionsService();
 var markers = [];
 
 function load () {
@@ -83,6 +84,10 @@ function loadedAjax (data) {
 	$("#spinner").className = "hidden";
 }*/
 
+function shorten (val) {
+	return Math.floor(val * 100)/100;
+}
+
 function search (string) {
 	if (string == "") {
 		res.innerHTML = "";
@@ -95,7 +100,34 @@ function search (string) {
 		return;
 	}
 	
-	
+	var request = {
+		origin:string, 
+		destination:"Sydney, NSW, Australia",
+		provideRouteAlternatives: true,
+		travelMode: google.maps.DirectionsTravelMode.DRIVING
+	};
+	directionsService.route(request, function(result, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			var set = {};
+			
+			for (var i=0; i<result.routes.length; i++) {
+				var route = result.routes[i];
+				for (var j=0; j<route.overview_path.length; j++) {
+					var point = route.overview_path[j];
+					var lng = shorten (point.lng());
+					var lat = shorten (point.lat());
+					set ['p'+lat+lng] = {'lat':lat,'lng':lng};
+				}
+			}
+			
+			var points = [];
+			var a = 0;
+			for (var i in set) {
+				points[a++] = set[i];
+			}
+			//alert ("hi");
+		}
+	});
 	
 	document.getElementById("res").className = "hidden";
 	$("#spinner").className = "show";

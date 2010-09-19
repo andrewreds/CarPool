@@ -95,10 +95,12 @@ function search (string) {
 		return;
 	}
 	
+	
+	
 	document.getElementById("res").className = "hidden";
 	$("#spinner").className = "show";
-	loadedAjax ("[{suburb:'Chatswood',etaCity:'08:30',etaHome:'17:00', contactName:'ren',rego:'ABC029',coords:[-33.8833,151.2167]},\
-		{suburb:'Cabramatta',etaCity:'06:45',etaHome:'17:15', contactName:'Andrew',rego:'L0LC0D',coords:[-33.8853,151.2227]}]")
+	loadedAjax ("[{suburb:'Chatswood',etaCity:'08:30',etaHome:'17:00', contactName:'ren',rego:'ABC029',coords:[-33.88,151.21]},\
+		{suburb:'Cabramatta',etaCity:'06:45',etaHome:'17:15', contactName:'Andrew',rego:'L0LC0D',coords:[-33.89,151.22]}]")
 }
 
 

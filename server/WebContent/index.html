@@ -3,7 +3,11 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="index.css"></link>
 	<link rel="stylesheet" type="text/css" href="buttons.css"></link>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<link type="text/css" href="css/smoothness/jquery-ui-1.8.5.custom.css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="index.js"></script>
 	<script type="text/javaScript" src="http://j.maxmind.com/app/geoip.js"></script>
@@ -12,13 +16,47 @@
 
 <div id="map"></div>
 
-Address: <input type="text" id="from" class="invalid" onkeyup="validate('address',this);"></input>
+Suburb: <input type="text" id="from" class="invalid" onkeyup="validate('address',this);search(this.value);"></input>
 
-Search: <input type="text" id="search" onkeyup="search(this.value);"></input>
+<div id="searchCars">
+	<button type="button" onclick="$('#addCar').slideDown();$('#searchCars').slideUp();">Offer a ride</button>
+	
+	<div id="res"></div>
+</div>
 
-<div id="res"></div>
+<div id="addCar" title="Enter Trip" style="display:none;">
+	
+	
+	<form id="tripForm" action="SaveAddressServlet" method="post">
+		ETA City: <input type="text" name="etaCity" size="14">
+		<br/>
+		ETA Home: <input type="text" name="etaHome" size="14">
+		<br/>
+		Contact Name: <input type="text" name="contactName" size="14">
+		<br/>
+		Email: <input type="text" name="email" size="14">
+		<br/>
+		Phone: <input type="text" name="phone" size="14">
+		<br/>       
+		Rego: <input type="text" name="rego" size="14">
+		<br/>       
+		<button type="submit">Submit</button> <button type="button" onclick="$('#searchCars').slideDown();$('#addCar').slideUp();">Cancle</button>
+	 </form>
+</div>
 
-<script>load();</script>
+
+<script type="text/javascript">
+	// bind 'tripForm' and provide a simple callback function 
+	$('#tripForm').ajaxForm(function() { 
+		alert("Thank you for your comment!"); 
+		$('#searchCars').slideDown();
+		$('#addCar').slideUp();
+	});
+	
+	load();
+	
+	search ($("#from").value);
+</script>
 </body>
 
 </html>

@@ -12,39 +12,43 @@
 	<script type="text/javascript" src="index.js"></script>
 	<script type="text/javaScript" src="http://j.maxmind.com/app/geoip.js"></script>
 </head>
-<body>
-
-<div id="map"></div>
-
-Suburb: <input type="text" id="from" class="invalid" onkeyup="validate('address',this);search(this.value);"></input>
-
-<div id="searchCars">
-	<button type="button" onclick="$('#addCar').slideDown();$('#searchCars').slideUp();">Offer a ride</button>
-	
-	<div id="res"></div>
-</div>
-
-<div id="addCar" title="Enter Trip" style="display:none;">
-	
-	
-	<form id="tripForm" action="SaveAddressServlet" method="post">
-		ETA City: <input type="text" name="etaCity" size="14">
-		<br/>
-		ETA Home: <input type="text" name="etaHome" size="14">
-		<br/>
-		Contact Name: <input type="text" name="contactName" size="14">
-		<br/>
-		Email: <input type="text" name="email" size="14">
-		<br/>
-		Phone: <input type="text" name="phone" size="14">
-		<br/>       
-		Rego: <input type="text" name="rego" size="14">
-		<br/>       
-		<button type="submit">Submit</button> <button type="button" onclick="$('#searchCars').slideDown();$('#addCar').slideUp();">Cancle</button>
-	 </form>
-</div>
-
-
+    <body>
+		<div id="container">
+			<div id="menuAndMap">
+        <div id="menu"> 
+        	<table width="300px" cellspacing="0px" cellpadding="0px" border="0" align="center" >
+            <tr> <td width="300px" height="195px"><a href="index.html"><img src="images/logo.png" height="195" width="300" align="top" style="border-style: none" alt="CarPool Logo" /></a></td> </tr>
+            <tr> <td width="300px" height="40px" align="center" > <a href="todo.html" style="text-decoration:none; color:#000;"> About Us </a> </td> </tr>
+            <tr> <td width="300px" height="40px" align="center" > <a href="todo.html" style="text-decoration:none; color:#000;"> Your Safety </a> </td> </tr>  
+            <tr> <td width="300px" height="40px" align="center" > <a href="todo.html" style="text-decoration:none; color:#000;"> Contact Us </a> </td> </tr>
+            <tr> <td width="300px" height="40px" align="center" > Search Post Code or Suburb: </td> </tr>
+            <tr> <td width="300px" height="40px" align="center" > <input type="text" id="from" class="invalid" onKeyUp="validate('address',this);search(this.value);" size="40px"></input> </td> </tr>
+    			</table>
+        </div>
+        	<div id="map"> </div>   
+        <div style="clear:both"> </div>
+      </div>
+      <div id="table">
+      	<div id="searchCars">
+					<button type="button" onClick="$('#addCar').slideDown();$('#searchCars').slideUp();">Click to offer a ride</button>
+					<div id="res"></div>
+				</div>
+        <div id="addCar" title="Enter Trip" style="display:none; ">
+          <form id="tripForm" action="SaveAddressServlet" method="post">
+          	<table width="800px" cellspacing="5px" cellpadding="0px" border="0" align="left">
+              <tr> <td width="285px" height="26px" align="center"> ETA City:  </td> <td> <input type="text" name="etaCity" size="15%"> </td> </tr>
+              <tr> <td width="285px" height="26px" align="center"> ETA Home:  </td> <td> <input type="text" name="etcHome" size="15%"> </td> </tr> 
+              <tr> <td width="285px" height="26px" align="center"> Contact Name:</td> <td> <input type="text" name="contactName" size="50%"> </td></tr> 
+              <tr> <td width="285px" height="26px" align="center"> Email:  			</td> <td> <input type="text" name="email" size="50%"> </td> </tr>
+              <tr> <td width="285px" height="26px" align="center"> Phone: 			</td> <td> <input type="text" name="phone" size="50%"> </td> </tr>
+              <tr> <td width="285px" height="26px" align="center"> Rego/Licence:</td> <td> <input type="text" name="rego" size="15%"> </td> </tr>
+            </table>
+            <button type="submit">Submit</button> <button type="button" onClick="$('#searchCars').slideDown();$('#addCar').slideUp();">Cancel</button>       
+           </form>
+				</div>
+   		</div>
+    </div>
+    
 <script type="text/javascript">
 	// bind 'tripForm' and provide a simple callback function 
 	$('#tripForm').ajaxForm(function() { 

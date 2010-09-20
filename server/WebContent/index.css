@@ -1,9 +1,74 @@
+@charset "UTF-8";
+
+html {
+	line-height: 1;
+}
+
+body  {
+	font: 100% Arial, Helvetica, Verdana, sans-serif;
+	margin: 0; 
+	padding: 0;
+	text-align: center; 
+	color: #000000;
+	height:100%;
+	background: #0087C3;
+	text-decoration:none;
+}
+
+#container {
+	height: auto;
+	width: 1200px;  
+	background: #0087C3;
+	margin: 0 auto; 
+	border: 5px #000;
+	text-align: left; 
+	font-size:18px;
+	padding-top: 30px;
+} 
+
+#menuAndMap {
+	height: 400px;
+	width: 900px;  
+	margin: 0 auto; 
+	border: 0px solid #FFF;
+	padding-bottom:25px;
+}
+
+#menu {
+	float:left;
+	height: 400px;
+	width: 300px;  
+	margin: 0 auto; 
+	border: 0px;
+	padding: 0px;
+	background-image: url(images/logo.png);
+	background-position:top;
+	background-repeat:no-repeat;
+	text-decoration:none;
+}
+#menu a: hover {
+	text-decoration:none;
+	color:#FFF;
+}
+
 #map {
-	width:400px;
-	height:400px;
+	float:right;
+	height: 400px;
+	width: 600px;  
+	margin: 0 auto; 
+	border: 0px;
+	padding: 0px;
+}
+ 
+#table {
+	height: auto;
+	width: 900px;  
+	margin: 0 auto; 
+	border: 0px;
 }
 
 #res table {
+	width: 900px;
 	border:solid;
 	border-spacing:0px;
 	border-width:2px;
@@ -11,7 +76,7 @@
 
 #res table tr {
 	padding:5px 0px;
-	background-color: #10EE10;
+	background-color: #FFF;
 	margin:0px;
 }
 
@@ -23,8 +88,7 @@
 }
 
 .highlight td {
-	
-	background-color: #E0EE00;
+	background-color: #E0E0E0;
 }
 
 .mas {
@@ -38,11 +102,9 @@
 	padding:5px;
 }
 
-#search {
-	padding-right:18px;
+ #search {
 	background-image:url(search_icon.png);
 	background-repeat: no-repeat;
-	background-position: 99% 50%;
 }
 	
 
